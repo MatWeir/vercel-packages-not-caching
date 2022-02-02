@@ -69,7 +69,7 @@ export default function Files({ data }) {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     let data = {
         test: 'failed'
     };
