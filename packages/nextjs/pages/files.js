@@ -74,7 +74,7 @@ export async function getServerSideProps() {
         test: 'failed'
     };
     const currentDirectory = process.cwd();
-    const cacheDirectory = `.output`;
+    const cacheDirectory = `${currentDirectory}/.output`;
     if (!existsSync(cacheDirectory)) {
         console.log('creating ' + cacheDirectory)
         mkdirSync(cacheDirectory);
