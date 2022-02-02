@@ -70,19 +70,19 @@ export default function Files({ data }) {
 }
 
 export async function getStaticProps() {
-    const currentDirectory = process.cwd();
-    try {
-        const cacheDirectory = `${currentDirectory}/.firsttable`;
-        if (!existsSync(cacheDirectory)) {
-            console.log('creating ' + cacheDirectory)
-            mkdirSync(cacheDirectory);
-        }
-    } catch (e) {
-        console.log(e);
-    }
-    const data = {
-        test: true
+    let data = {
+        test: 'failed'
     };
+    const currentDirectory = process.cwd();
+    const cacheDirectory = `${currentDirectory}/.firsttable`;
+    if (!existsSync(cacheDirectory)) {
+        console.log('creating ' + cacheDirectory)
+        mkdirSync(cacheDirectory);
+    }
+    const cacheFilename = `${cacheDirectory}/test.json`;
+    console.log(cacheFilename);
+    data.test = 'success';
+    await writeFileSync(cacheFilename, JSON.stringify(data));
     console.log(data);
     // By returning { props: { posts } }, the Blog component
     // will receive `posts` as a prop at build time
