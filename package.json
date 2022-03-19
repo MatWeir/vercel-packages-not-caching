@@ -1,7 +1,7 @@
 {
   "name": "vercel-packages-not-caching",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "workspaces": {
     "packages": [
       "packages/*"
