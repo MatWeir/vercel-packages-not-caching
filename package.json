@@ -1,7 +1,12 @@
 {
   "name": "vercel-packages-not-caching",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
   },
   "dependencies": {
